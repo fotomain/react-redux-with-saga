@@ -3,21 +3,30 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getCatsFetch } from './redux/catSlice';
 
 import './App.css'
+import {userActions} from "./redux/userSlice.js";
 
 function App() {
 
+    console.log("█████ here 000")
+    ///saga-7
+  const userDataWork = useSelector(state => state.userState.userSettings);
   const cats = useSelector(state => state.cats.cats);
   const dispatch = useDispatch();
 
   useEffect(() => {
+      ///saga-6
+
+    dispatch(userActions.getData())
     dispatch(getCatsFetch())
   }, [dispatch]);
 
-  console.log(cats);
+  // console.log(cats);
+  console.log("████ userDataWork",userDataWork);
 
   return (
     <div className='App'>
       <h1>CAT GALLERY</h1> <hr />
+        <div>{JSON.stringify(userDataWork)}</div>
       <div className='Gallery'>
         {cats.map(cat =>
           <div key={cat.id} className='row'>
