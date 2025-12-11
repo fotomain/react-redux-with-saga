@@ -13,7 +13,7 @@ export const userSliceHandle = createSlice({
     },
     reducers: {
         setGUID: (state,action) => {
-            state.userGUID = action.payload.GUID;
+            state.userGUID = action.payload;
         },
         getData: (state) => {
             state.isLoading = true;

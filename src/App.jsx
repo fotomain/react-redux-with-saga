@@ -30,7 +30,7 @@ function App() {
         {userGUID && <div>{userGUID}</div>}
         <button
             onClick={()=>{
-                dispatch(userActions.setGUID({GUID:Date.now()}))
+                dispatch(userActions.setGUID(Date.now().toString()))
             }}
         >
             Set GUID
