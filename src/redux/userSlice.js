@@ -8,17 +8,20 @@ export const userSliceHandle = createSlice({
         ///03
         userSettings: {userGUID:"111"},
         isLoading: false,
+        isError: false,
     },
     reducers: {
         getData: (state) => {
             state.isLoading = true;
+            state.isError=false;
         },
         getDataSuccess: (state, action) => {
-            state.cats = action.payload;
+            state.userSettings = action.payload;
             state.isLoading = false;
         },
         getDataFailure: (state) => {
             state.isLoading = false;
+            state.isError = true;
         }
     }
 });
