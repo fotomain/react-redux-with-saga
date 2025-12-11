@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import {userActions, userReducer} from "./userSlice.js";
+import {userActions} from "./userSlice.js";
 
 ///saga-2
 function* workUserDataFetch() {
@@ -28,8 +28,9 @@ function* workUserDataFetch() {
 }
 
 function* userSaga() {
-    ///saga-1-1
+
     console.log("███████████ here 1")
+    ///saga-1-1
     yield takeEvery(userActions.getData, workUserDataFetch);
 }
 

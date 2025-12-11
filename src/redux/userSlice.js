@@ -6,17 +6,21 @@ export const userSliceHandle = createSlice({
     name: "userSlice",
     initialState: {
         ///03
-        userSettings: {userGUID:"111"},
+        JSONFromServer: {},
+        userGUID:'',
         isLoading: false,
         isError: false,
     },
     reducers: {
+        setGUID: (state,action) => {
+            state.userGUID = action.payload.GUID;
+        },
         getData: (state) => {
             state.isLoading = true;
             state.isError=false;
         },
         getDataSuccess: (state, action) => {
-            state.userSettings = action.payload;
+            state.JSONFromServer = action.payload;
             state.isLoading = false;
         },
         getDataFailure: (state) => {
@@ -25,6 +29,8 @@ export const userSliceHandle = createSlice({
         }
     }
 });
+
+// const userSliceHandle = sliceFabric()
 
 ///04
 export const userActions= userSliceHandle.actions;

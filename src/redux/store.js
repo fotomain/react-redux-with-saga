@@ -7,7 +7,7 @@ import userSaga from "./userSaga.js";
 
 const saga = createSagaMiddleware();
 
-console.log("█████ here 000")
+// console.log("█████ here 000")
 
 export const store = configureStore({
     reducer: {
@@ -20,7 +20,7 @@ export const store = configureStore({
         getDefaultMiddleware().concat(saga),
 });
 
-console.log("█████ here 111")
+// console.log("█████ here 111")
 
 ///saga-5
 saga.run(catSaga);
